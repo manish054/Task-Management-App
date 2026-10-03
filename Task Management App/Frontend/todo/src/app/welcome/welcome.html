@@ -1,0 +1,12 @@
+<div>
+    <p>welcome {{name}}!</p>
+</div>
+<div>
+    Manage your Todo's list. <a [routerLink]="['/todos']">Click here</a>
+</div>
+<div class="container">
+    <button class="btn btn-success" (click)="getMessage()">Get Customized Message</button>
+</div>
+<div class="container">
+    <p>{{message}}</p>
+</div>

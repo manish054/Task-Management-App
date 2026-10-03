@@ -1,0 +1,36 @@
+<div class="container d-flex flex-column justify-content-center align-items-center bg-light" style="min-height: 80vh;">
+  @if(pastDate || emptyDesc){
+    <h3 class="text-center mb-4 red">Task is Empty || Choose Future Date</h3>
+  }
+  <!-- @if(emptyDesc){
+    <h3 class="text-center mb-4 red">Task is Empty</h3>
+  } -->
+  <div class="card shadow-lg p-4 rounded-4" style="width: 500px;">
+    
+    <div class="text-center mb-4">
+      <h3 class="fw-bold">Add Work</h3>
+      <p class="text-muted mb-0">Fill in the details below</p>
+    </div>
+
+    <form class="row g-3" (ngSubmit) = "add()">
+
+      <div class="col-md-6">
+        <label class="form-label">Task Name</label>
+        <input type="text" class="form-control" placeholder="Enter Task" name="description" id="description" [(ngModel)]="description"
+          autocomplete="off">
+      </div>
+
+      <div class="col-md-6">
+        <label class="form-label">Deadline</label>
+        <input type="date" class="form-control" name="date" id="date" [(ngModel)]="date">
+      </div>
+
+      <div class="col-12 d-grid mt-3">
+        <button type="submit" class="btn btn-success btn-lg">
+          Add
+        </button>
+      </div>
+
+    </form>
+  </div>
+</div>

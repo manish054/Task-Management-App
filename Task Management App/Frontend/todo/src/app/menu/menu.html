@@ -1,0 +1,28 @@
+<nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+  <div class="container-fluid">
+    <a class="navbar-brand" [routerLink]="['/']">Todos</a>
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavAltMarkup"
+      aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
+      <div class="navbar-nav">
+        @if(authenticationService.isLoggedIn()){
+        <a class="nav-link active" aria-current="page" [routerLink]="['/']">Home</a>
+        <a class="nav-link" [routerLink]="['/todos']">Todos</a>
+        <a class="nav-link" [routerLink]="['/tracker']">Tracker</a>
+        }
+      </div>
+      <div class="navbar-nav navbar-collapse justify-content-end">
+        @if(!authenticationService.isLoggedIn()){
+        <a class="nav-link" [routerLink]="['/signup']">Sign Up</a>
+        <a class="nav-link" [routerLink]="['/login']">Login</a>
+        }
+        @else{
+        <a class="nav-link" [routerLink]="['/logout']">Logout</a>
+        }
+
+      </div>
+    </div>
+  </div>
+</nav>

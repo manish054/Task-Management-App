@@ -1,0 +1,55 @@
+<div class="container d-flex flex-column justify-content-center align-items-center bg-light" style="min-height: 80vh;">
+  <!-- @if(pastDate || emptyDesc){
+    <h3 class="text-center mb-4 red">Task is Empty || Choose Future Date</h3>
+  } -->
+  @if(usernameExists()){
+    <p class="text-muted mb-0">Username already taken</p>
+  }
+
+  @if(emailExists()){
+    <p class="text-muted mb-0">Email already registered</p>
+  }
+  
+  @if(!passwordMatched){
+    <p class="text-muted mb-0">Password not matched</p>
+  }
+  <div class="card shadow-lg p-4 rounded-4" style="width: 500px;">
+    
+    <div class="text-center mb-4">
+      <!-- <h3 class="fw-bold">Sign Up</h3> -->
+      <p class="text-muted mb-0">Let's start the Journey !!!</p>
+    </div>
+
+    <form class="row g-3" (ngSubmit) = "signUp()">
+
+      <div class="col-md-6">
+        <label class="form-label">Username</label>
+        <input type="text" class="form-control" placeholder="Enter username" name="username" id="username" [(ngModel)]="username"
+          autocomplete="off">
+      </div>
+
+      <div class="col-md-6">
+        <label class="form-label">Email</label>
+        <input type="email" class="form-control" placeholder="Enter email" name="email" id="email" [(ngModel)]="email"
+          autocomplete="off">
+      </div>
+
+      <div class="col-md-6">
+        <label class="form-label">Password</label>
+        <input type="password" class="form-control" name="password" id="password" [(ngModel)]="password">
+      </div>
+
+      <div class="col-md-6">
+        <label class="form-label">Confirm Password</label>
+        <input type="password" class="form-control" name="confirmPassword" id="confirmPassword" [(ngModel)]="confirmPassword">
+      </div>
+
+      <div class="col-12 d-grid mt-3">
+        <button type="submit" class="btn btn-success btn-lg">
+          Sign Up
+        </button>
+      </div>
+
+    </form>
+  </div>
+</div>

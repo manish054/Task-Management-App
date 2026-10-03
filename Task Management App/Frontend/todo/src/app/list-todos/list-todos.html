@@ -1,0 +1,38 @@
+<div class="text-center"><h1>My Todo's List</h1> </div>
+<div class="w-100 d-flex justify-content-end">
+    <button type="button" class="btn btn-outline-success" (click) = "addTodo()">Add Todo</button>
+</div>
+<div>
+    <table class="table text-center">
+    <thead>
+        <tr>
+            <th>Sl No</th>
+            <th>To Do</th>
+            <th>Deadline</th>
+            <th>Completed?</th>
+            <th>Actions</th>
+        </tr>
+    </thead>
+    <tbody>
+        @for(todo of todoList(); track todo.id; let i = $index){
+            @if(!todo.movedToTracker){
+                <tr>
+                <td>{{i+1}}</td>
+                <td>{{todo.description}}</td>
+                <td>{{todo.targetDate | date}}</td>
+                <td>{{todo.done ? 'Yes' : 'No'}}</td>
+                <td>
+                    <div class="d-flex justify-content-evenly">
+                        <i class="bi bi-pencil-square text-warning" (click) = "edit(todo.id)" style="cursor: pointer;" ></i>
+                        <i class="bi bi-trash-fill text-danger" (click) = "delete(todo.id)" style="cursor: pointer;"></i>
+                        <i class="bi bi-check-square-fill text-success" (click) = "complete(todo.id)" style="cursor: pointer;"></i>
+                        <i class="bi bi-radar" style="cursor: pointer;" (click) = "track(todo.id)"></i>
+                    </div>
+                </td>
+            </tr>
+            }
+        }
+    </tbody>
+</table>
+<!-- <p>Total Todos: {{ todoList.length }}</p> -->
+</div>
